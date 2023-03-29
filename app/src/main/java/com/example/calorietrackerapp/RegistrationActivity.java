@@ -11,7 +11,7 @@ import android.widget.Toast;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class RegistrationActivity extends AppCompatActivity {
+public class  RegistrationActivity extends AppCompatActivity {
 
     EditText username, password, repassword, email;
     Button signup;
@@ -59,6 +59,9 @@ public class RegistrationActivity extends AppCompatActivity {
 
 
         });
+        Intent intent = new Intent(RegistrationActivity.this, ProfileActivity.class);
+        startActivity(intent);
+
     }
 
 
