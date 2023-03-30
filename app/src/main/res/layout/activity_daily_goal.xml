@@ -11,9 +11,18 @@
     <EditText
         android:id="@+id/daily_calorie_goal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:hint="Enter daily calorie goal"
         android:inputType="number" />
+
+    <EditText
+        android:id="@+id/user_weight"
+        android:layout_width="379dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:hint="Enter your weight (lbs)"
+        android:inputType="numberDecimal"
+        android:textSize="18sp" />
 
     <Button
         android:id="@+id/save_daily_goal"
@@ -23,11 +32,33 @@
         android:text="Save" />
 
     <TextView
-        android:id="@+id/goal_display"
-        android:layout_width="wrap_content"
+        android:id="@+id/goal_value"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:textSize="18sp" />
 
+    <TextView
+        android:id="@+id/user_weight_value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/goal_value" />
+
+    <TextView
+        android:id="@+id/goal_display"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/exercise_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:textSize="18sp" />
 
 </LinearLayout>
