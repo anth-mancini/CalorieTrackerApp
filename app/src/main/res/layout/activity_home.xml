@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/LinearLayout"
@@ -10,34 +10,50 @@
 
     <Button
         android:id="@+id/go_to_diagram"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:text="Diagram for Macronutrients"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="150dp" />
+        android:layout_marginTop="50dp"/>
 
     <Button
         android:id="@+id/go_to_daily_goal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="44dp"
         android:text="Set Daily Calorie Goal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="25dp"
+        android:layout_below="@id/go_to_diagram"/>
 
     <Button
         android:id="@+id/addfoodbtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add Food" />
+        android:text="Add Food"
+        android:layout_marginTop="25dp"
+        android:layout_below="@id/go_to_daily_goal"/>
 
     <Button
         android:id="@+id/btn_displayFood"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Food List" />
+        android:text="Food List"
+        android:layout_marginTop="25dp"
+        android:layout_below="@id/addfoodbtn"/>
+
+    <Button
+        android:id="@+id/foodDBbtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pick food to add!"
+        android:layout_marginTop="25dp"
+        android:layout_below="@id/btn_displayFood"/>
+
+    <Button
+        android:id="@+id/viewHistoryBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View Meal History"
+        android:layout_marginTop="25dp"
+        android:layout_below="@id/foodDBbtn"/>
 
 
-</LinearLayout>
+</RelativeLayout>

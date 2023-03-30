@@ -9,10 +9,16 @@ import android.widget.Button;
 
 public class HomeActivity extends AppCompatActivity {
 
+    Button foodDBbtn, historyBtn;
+    static String username;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        Intent i = getIntent();
+        username = i.getExtras().getString("username");
 
         Button goToDailyGoal = findViewById(R.id.go_to_daily_goal);
         Button btnAddFood = findViewById(R.id.addfoodbtn);
@@ -39,6 +45,20 @@ public class HomeActivity extends AppCompatActivity {
                 Intent intent = new Intent(HomeActivity.this, DisplayFoodActivity.class);
                 startActivity(intent);
             }
+        });
+
+        foodDBbtn = (Button) findViewById(R.id.foodDBbtn);
+
+        foodDBbtn.setOnClickListener(view -> {
+            Intent intent = new Intent(getApplicationContext(), ViewFoodActivity.class);
+            startActivity(intent);
+        });
+
+        historyBtn = (Button) findViewById(R.id.viewHistoryBtn);
+
+        historyBtn.setOnClickListener(view -> {
+            Intent intent = new Intent(getApplicationContext(), ViewHistoryActivity.class);
+            startActivity(intent);
         });
 
     }
