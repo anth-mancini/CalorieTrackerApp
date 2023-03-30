@@ -3,9 +3,12 @@ package com.example.calorietrackerapp;
 import androidx.appcompat.app.AppCompatActivity;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.TextView;
 import org.eazegraph.lib.charts.PieChart;
 import org.eazegraph.lib.models.PieModel;
+import android.content.Intent;
+import android.view.View;
 
 public class ChartActivity extends AppCompatActivity{
 
@@ -23,6 +26,15 @@ public class ChartActivity extends AppCompatActivity{
         diagram = findViewById(R.id.dataDiagram);
 
         setData();
+
+        Button goToHome = findViewById(R.id.back_to_home);
+        goToHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ChartActivity.this, HomeActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void setData() {
