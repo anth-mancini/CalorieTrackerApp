@@ -46,7 +46,7 @@ public class  RegistrationActivity extends AppCompatActivity {
                 if(validateUsername(user) && validatePassword(pass, repass) && validateEmail(em)){
                     if(db.insertData(user, pass, em)){
                         Toast.makeText(RegistrationActivity.this, "Registration Successful!", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
                         startActivity(intent);
                     }
                     else{
@@ -59,8 +59,7 @@ public class  RegistrationActivity extends AppCompatActivity {
 
 
         });
-        Intent intent = new Intent(RegistrationActivity.this, ProfileActivity.class);
-        startActivity(intent);
+
 
     }
 
