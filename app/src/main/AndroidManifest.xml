@@ -12,6 +12,29 @@
         android:theme="@style/Theme.CalorieTrackerApp"
         tools:targetApi="31">
         <activity
+            android:name=".ViewHistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ViewFoodActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ListView"
+            android:exported="false" />
+        <activity
+            android:name=".DisplayFoodActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".AddFoodActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".DateofBirthActivity"
             android:exported="false">
             <meta-data
@@ -47,11 +70,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".ChartActivity"
+        <activity
+            android:name=".ChartActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

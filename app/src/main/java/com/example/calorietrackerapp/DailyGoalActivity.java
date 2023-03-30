@@ -22,6 +22,7 @@ public class DailyGoalActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daily_goal);
 
+
         dailyCalorieGoal = findViewById(R.id.daily_calorie_goal);
         userWeight = findViewById(R.id.user_weight);
         userWeightValue = findViewById(R.id.user_weight_value);
