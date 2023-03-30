@@ -23,10 +23,20 @@ public class HomeActivity extends AppCompatActivity {
         Button goToDailyGoal = findViewById(R.id.go_to_daily_goal);
         Button btnAddFood = findViewById(R.id.addfoodbtn);
         Button btnFoodList = findViewById(R.id.btn_displayFood);
+        Button btnDiagram = findViewById(R.id.go_to_diagram);
+
         goToDailyGoal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this, DailyGoalActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnDiagram.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeActivity.this, ChartActivity.class);
                 startActivity(intent);
             }
         });
