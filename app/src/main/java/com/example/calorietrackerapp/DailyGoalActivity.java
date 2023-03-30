@@ -31,10 +31,21 @@ public class DailyGoalActivity extends AppCompatActivity {
         exerciseInfo = findViewById(R.id.exercise_info);
 
         SharedPreferences prefs = getSharedPreferences("user_data", MODE_PRIVATE);
-        String storedGoal = prefs.getString("daily_calorie_goal", "");
-        if (!storedGoal.isEmpty()) {
-            dailyCalorieGoal.setText(storedGoal);
-            goalValue.setText(storedGoal);
+        String savedGoal = prefs.getString("daily_calorie_goal", null);
+        String savedWeight = prefs.getString("user_weight", null);
+        float savedExerciseDuration = prefs.getFloat("exercise_duration", -1);
+        if (savedGoal != null) {
+            goalValue.setText(String.format("Calorie Goal: %s", savedGoal));
+        }
+
+        if (savedWeight != null) {
+            userWeightValue.setText(String.format("Weight: %s lbs", savedWeight));
+        }
+
+        if (savedExerciseDuration != -1) {
+            exerciseInfo.setText(String.format(Locale.getDefault(),
+                    "To lose %s calories, you should do moderate exercise for %d minutes.",
+                    savedGoal, Math.round(savedExerciseDuration)));
         }
 
         saveDailyGoal.setOnClickListener(new View.OnClickListener() {
@@ -46,18 +57,19 @@ public class DailyGoalActivity extends AppCompatActivity {
                 if (!goal.isEmpty() && !weight.isEmpty()) {
                     SharedPreferences.Editor editor = getSharedPreferences("user_data", MODE_PRIVATE).edit();
                     editor.putString("daily_calorie_goal", goal);
+                    editor.putString("user_weight", weight);
                     editor.apply();
 
                     // Display the calorie goal and weight in formatted strings
                     goalValue.setText(String.format("Calorie Goal: %s", goal));
-                    userWeightValue.setText(String.format("Weight: %s", weight));
+                    userWeightValue.setText(String.format("Weight: %s lbs", weight));
 
                     // Calculate exercise needed to lose the calories
                     double weightKg = Double.parseDouble(weight);
                     double caloriesToLose = Double.parseDouble(goal);
 
                     // Assuming a MET value of 5 for moderate exercise
-                    double metValue = 5;
+                    double metValue = 3;
 
                     // Calculate the duration of the exercise in minutes
                     double exerciseDuration = (caloriesToLose / (metValue * 3.5 * weightKg)) * 200;
@@ -66,6 +78,9 @@ public class DailyGoalActivity extends AppCompatActivity {
                     exerciseInfo.setText(String.format(Locale.getDefault(),
                             "To lose %s calories, you should do moderate exercise for %d minutes.",
                             goal, roundedExerciseDuration));
+
+                    editor.putFloat("exercise_duration", (float) exerciseDuration);
+                    editor.apply();
 
                     Toast.makeText(DailyGoalActivity.this, "Daily calorie goal saved!", Toast.LENGTH_SHORT).show();
                 } else {
