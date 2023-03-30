@@ -20,10 +20,17 @@ public class HomeActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this, DailyGoalActivity.class);
                 startActivity(intent);
+
             }
         });
-
+        Button goToDiagram = findViewById(R.id.go_to_diagram);
+        goToDiagram.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, ChartActivity.class);
+                startActivity(intent);
+            }
+        });
     }
-
-
 }
+

@@ -7,6 +7,15 @@
     tools:context=".HomeActivity">
 
     <Button
+        android:id="@+id/go_to_diagram"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Diagram for Macronutrients"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="150dp" />
+
+    <Button
         android:id="@+id/go_to_daily_goal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
